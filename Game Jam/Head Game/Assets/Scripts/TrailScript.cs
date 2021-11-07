@@ -7,6 +7,7 @@ public class TrailScript : MonoBehaviour
     public Transform player;
     public float zOffset;
     public float yOffset;
+    public float xOffset;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,6 @@ public class TrailScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(player.position.x, player.position.y - yOffset, zOffset);
+        transform.position = new Vector3(player.position.x - xOffset, player.position.y - yOffset, zOffset);
     }
 }
