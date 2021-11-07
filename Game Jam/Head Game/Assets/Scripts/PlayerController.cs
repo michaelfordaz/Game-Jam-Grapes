@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public AudioSource squishSound;
     public AudioSource splatSound;
 
+    public Transform respawnPoint;
+
     void Start()
     {
         //Fetch the Rigidbody from the GameObject with this script attached
@@ -67,4 +69,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Rat"))
+        {
+            gameObject.GetComponent<PlayerController>().trailObject.GetComponent<TrailRenderer>().emitting = false;
+            gameObject.GetComponent<PlayerController>().touchingGround = false;
+            gameObject.GetComponent<PlayerController>().squishSound.mute = true;
+
+            gameObject.transform.position = respawnPoint.position;
+            gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0f;
+        }
+    }
 }

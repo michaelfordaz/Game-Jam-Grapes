@@ -18,7 +18,7 @@ public class Destructable : MonoBehaviour
             beenTouched = true;
             if (!clinkSound.isPlaying)
             {
-                print("1");
+                //print("1");
                 clinkSound.Play();
             }
         }
@@ -27,7 +27,7 @@ public class Destructable : MonoBehaviour
             beenTouched = true;
             if (!clinkSound.isPlaying)
             {
-                print("2");
+                //print("2");
                 clinkSound.Play();
             }
         }
