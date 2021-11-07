@@ -39,7 +39,7 @@ public class AIPatrol : MonoBehaviour
     {
         if(bodyCollider.IsTouchingLayers(groundLayer))
         {
-            Debug.Log("Let's fucking turn around");
+           // Debug.Log("Let's fucking turn around");
             Flip();
         }
         rb.velocity = new Vector2(-walkSpeed * Time.fixedDeltaTime, rb.velocity.y);
