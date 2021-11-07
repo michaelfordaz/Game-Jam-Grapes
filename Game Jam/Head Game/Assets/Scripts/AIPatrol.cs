@@ -47,7 +47,7 @@ public class AIPatrol : MonoBehaviour
 
     void Flip()
     {
-        transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y * -1);
+        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         walkSpeed *= -1;
         mustPatrol = true;
     }
