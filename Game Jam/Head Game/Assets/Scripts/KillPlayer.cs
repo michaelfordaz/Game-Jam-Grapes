@@ -10,6 +10,10 @@ public class KillPlayer : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            collision.gameObject.GetComponent<PlayerController>().trailObject.GetComponent<TrailRenderer>().emitting = false;
+            collision.gameObject.GetComponent<PlayerController>().touchingGround = false;
+            collision.gameObject.GetComponent<PlayerController>().squishSound.mute = true;
+
             collision.gameObject.transform.position = respawnPoint.position;
             collision.gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
