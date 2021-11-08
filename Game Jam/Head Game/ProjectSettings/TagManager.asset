@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Destructable Vile
   - Rat
+  - End Space
   layers:
   - Default
   - TransparentFX

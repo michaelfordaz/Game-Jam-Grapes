@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/RatScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/TitleScene.unity
+    guid: 5b6394f6b3fa5d647a410ca4812250f0
+  - enabled: 1
+    path: Assets/Scenes/LevelDesign.unity
+    guid: 157cfd86829e2ae469d7fa916482dc5d
   m_configObjects: {}

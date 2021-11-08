@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -17,8 +19,14 @@ public class PlayerController : MonoBehaviour
 
     public Transform respawnPoint;
 
+    public Image fadeOne;
+    public Image fadeTwo;
+
     void Start()
     {
+        fadeOne.canvasRenderer.SetAlpha(0.0f);
+        fadeTwo.canvasRenderer.SetAlpha(0.0f);
+
         //Fetch the Rigidbody from the GameObject with this script attached
         m_Rigidbody = GetComponent<Rigidbody2D>();
         touchingGround = false;
@@ -82,5 +90,19 @@ public class PlayerController : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0f;
         }
+        if (collision.gameObject.CompareTag("End Space"))
+        {
+            StartCoroutine(fader());
+        }
+    }
+
+    IEnumerator fader()
+    {
+        fadeOne.CrossFadeAlpha(1, 5, false);
+        fadeTwo.CrossFadeAlpha(1, 5, false);
+
+        yield return new WaitForSeconds(20);
+
+        SceneManager.LoadScene("LevelDesign");
     }
 }
