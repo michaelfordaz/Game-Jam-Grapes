@@ -7,6 +7,9 @@ public class BounceActivate : MonoBehaviour
     private GameObject[] bouncePads;
     private bool leftSurface = false;
 
+    // A rat sqweak when you hit it
+    public AudioSource ratSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +65,11 @@ public class BounceActivate : MonoBehaviour
         }*/
         if (collision.gameObject.CompareTag("Bounce"))
         {
+            // Play rat noise
+            if (!ratSound.isPlaying)
+            {
+                ratSound.Play();
+            }
             //print("repeat");
             foreach (GameObject bouncer in bouncePads)
             {

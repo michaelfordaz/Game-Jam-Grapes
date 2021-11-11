@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource squishSound;
     public AudioSource splatSound;
+    // A rat sqweak when you hit it
+    public AudioSource ratSound;
     // If it's the first splat, don't play the noise
     private bool firstSplat = true;
 
@@ -104,6 +106,11 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Rat"))
         {
+            // Play rat noise
+            if (!ratSound.isPlaying)
+            {
+                ratSound.Play();
+            }
             gameObject.GetComponent<PlayerController>().trailObject.GetComponent<TrailRenderer>().emitting = false;
             gameObject.GetComponent<PlayerController>().touchingGround = false;
             gameObject.GetComponent<PlayerController>().squishSound.mute = true;
