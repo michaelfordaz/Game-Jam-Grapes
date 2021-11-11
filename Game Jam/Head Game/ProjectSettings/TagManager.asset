@@ -11,6 +11,7 @@ TagManager:
   - End Space
   - Jar
   - JarTriggerWall
+  - Bounce
   layers:
   - Default
   - TransparentFX

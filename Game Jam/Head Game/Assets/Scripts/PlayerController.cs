@@ -21,17 +21,29 @@ public class PlayerController : MonoBehaviour
 
     public Transform respawnPoint;
 
+    // These are references to images on the canvas
+    // They will be used to fade in and out
     public Image black;
     public Image fadeOne;
     public Image fadeTwo;
 
     void Start()
     {
-        black.canvasRenderer.SetAlpha(1.0f);
-        fadeOne.canvasRenderer.SetAlpha(0.0f);
-        fadeTwo.canvasRenderer.SetAlpha(0.0f);
-
-        black.CrossFadeAlpha(0, 3, false);
+        // Check to make sure the fades have been set
+        if (black != null)
+        {
+            black.canvasRenderer.SetAlpha(1.0f);
+            // Fade from black at beginning
+            black.CrossFadeAlpha(0, 3, false);
+        }
+        if (fadeOne != null)
+        {
+            fadeOne.canvasRenderer.SetAlpha(0.0f);
+        }
+        if (fadeTwo != null)
+        {
+            fadeTwo.canvasRenderer.SetAlpha(0.0f);
+        }
 
         //Fetch the Rigidbody from the GameObject with this script attached
         m_Rigidbody = GetComponent<Rigidbody2D>();

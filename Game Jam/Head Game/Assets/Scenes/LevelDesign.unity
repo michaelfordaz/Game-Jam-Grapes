@@ -1329,7 +1329,7 @@ GameObject:
   - component: {fileID: 87805808}
   m_Layer: 0
   m_Name: Bouncy
-  m_TagString: Untagged
+  m_TagString: Bounce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9149,7 +9149,7 @@ GameObject:
   - component: {fileID: 402957416}
   m_Layer: 0
   m_Name: Bouncy
-  m_TagString: Untagged
+  m_TagString: Bounce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14750,7 +14750,7 @@ GameObject:
   - component: {fileID: 782275217}
   m_Layer: 0
   m_Name: Bouncy
-  m_TagString: Untagged
+  m_TagString: Bounce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21905,6 +21905,7 @@ GameObject:
   - component: {fileID: 1021852661}
   - component: {fileID: 1021852660}
   - component: {fileID: 1021852659}
+  - component: {fileID: 1021852666}
   m_Layer: 0
   m_Name: Head
   m_TagString: Player
@@ -22228,6 +22229,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1021852666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021852658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9893fef0eca6d4149a2a8fa15bee753f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bouncy: {fileID: 6200000, guid: a0c0403412eb376408140be1820daebc, type: 2}
+  sameBouncy: {fileID: 6200000, guid: ce424af22a661b640986134541a2cf41, type: 2}
 --- !u!1 &1023455391
 GameObject:
   m_ObjectHideFlags: 0
@@ -25564,7 +25579,7 @@ GameObject:
   - component: {fileID: 1264431880}
   m_Layer: 0
   m_Name: Bouncy
-  m_TagString: Untagged
+  m_TagString: Bounce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42379,7 +42394,7 @@ GameObject:
   - component: {fileID: 1969833811}
   m_Layer: 0
   m_Name: Bouncy
-  m_TagString: Untagged
+  m_TagString: Bounce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
