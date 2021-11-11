@@ -16,6 +16,15 @@ public class BounceMechanics : MonoBehaviour
     // If the previous object that you touched is the rat, do not escalate jump height
     private bool restrictJumpHeight = false;
 
+    private bool notBouncySurface = true;
+
+    // Where you fall off from
+    private float locationOne;
+    // Where you bounce
+    private float locationTwo;
+    // Additional height after bounce
+    private float additive = 31.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,13 +43,15 @@ public class BounceMechanics : MonoBehaviour
         // Not rat and surface
         if (GetComponent<Rigidbody2D>().velocity.y == 0 && !collision.gameObject.CompareTag("Bounce"))
         {
-            print("not rat");
+            //print("not rat");
             restrictJumpHeight = false;
+            notBouncySurface = true;
 
             // Set each rat to bouncy
             foreach (GameObject bouncer in bouncePads)
             {
                 bouncer.GetComponent<BoxCollider2D>().sharedMaterial = bouncy;
+                //bouncer.GetComponent<BoxCollider2D>().sharedMaterial.bounciness = 2.0f;
             }
             //collision.gameObject.GetComponent<BoxCollider2D>().sharedMaterial = bouncy;
         }
@@ -63,6 +74,14 @@ public class BounceMechanics : MonoBehaviour
             collision.gameObject.GetComponent<BoxCollider2D>().enabled = true;
             // On the next bounce, retain this height
             restrictJumpHeight = true;
+
+            locationTwo = transform.position.y;
+            float fallDistance = locationOne - locationTwo;
+            float multiplier = (additive + fallDistance) / fallDistance;
+            //print(multiplier);
+            print(fallDistance);
+
+            //collision.gameObject.GetComponent<BoxCollider2D>().sharedMaterial.bounciness = multiplier;
         }
         // Repetitive Bounce
         /*else if (collision.gameObject.CompareTag("Bounce") && restrictJumpHeight == true)
@@ -78,6 +97,12 @@ public class BounceMechanics : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
+        if (notBouncySurface == true)
+        {
+            locationOne = transform.position.y;
+            notBouncySurface = false;
+        }
+
         // If you just bounced from the rat, the next bounce will not increase bounce height
         // Not rat and surface
         /*if (GetComponent<Rigidbody2D>().velocity.y == 0 && !collision.gameObject.CompareTag("Bounce"))
@@ -88,7 +113,7 @@ public class BounceMechanics : MonoBehaviour
         // First Bounce
         if (collision.gameObject.CompareTag("Bounce") && restrictJumpHeight == false)
         {
-            print("frist bounce");
+            //print("frist bounce");
             // Bounce twice as high as drop height
             collision.gameObject.GetComponent<BoxCollider2D>().sharedMaterial = sameBouncy;
             //collision.gameObject.GetComponent<BoxCollider2D>().sharedMaterial.bounciness = 1.0f;
@@ -101,7 +126,7 @@ public class BounceMechanics : MonoBehaviour
         // Repetitive Bounce
         else if (collision.gameObject.CompareTag("Bounce") && restrictJumpHeight == true)
         {
-            print("repetitive bounce");
+            //print("repetitive bounce");
             // Retain bounce height
             //collision.gameObject.GetComponent<BoxCollider2D>().sharedMaterial.bounciness = 1.0f;
             // Make changes take affect

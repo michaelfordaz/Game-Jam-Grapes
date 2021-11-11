@@ -1327,6 +1327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 87805807}
   - component: {fileID: 87805808}
+  - component: {fileID: 87805809}
   m_Layer: 0
   m_Name: Bouncy
   m_TagString: Bounce
@@ -1374,6 +1375,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.32, y: 0.41}
   m_EdgeRadius: 0
+--- !u!114 &87805809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87805806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33d1d27503bd8498d33f241530e554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  additive: 6
 --- !u!1 &104043675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,7 +1478,7 @@ GameObject:
   - component: {fileID: 108826619}
   m_Layer: 0
   m_Name: Orange Vile
-  m_TagString: Untagged
+  m_TagString: JumpVile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9147,6 +9161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 402957415}
   - component: {fileID: 402957416}
+  - component: {fileID: 402957417}
   m_Layer: 0
   m_Name: Bouncy
   m_TagString: Bounce
@@ -9194,6 +9209,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.32, y: 0.41}
   m_EdgeRadius: 0
+--- !u!114 &402957417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402957414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33d1d27503bd8498d33f241530e554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  additive: 2.5
 --- !u!1 &404629139
 GameObject:
   m_ObjectHideFlags: 0
@@ -14748,6 +14776,7 @@ GameObject:
   m_Component:
   - component: {fileID: 782275216}
   - component: {fileID: 782275217}
+  - component: {fileID: 782275218}
   m_Layer: 0
   m_Name: Bouncy
   m_TagString: Bounce
@@ -14795,6 +14824,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.32, y: 0.41}
   m_EdgeRadius: 0
+--- !u!114 &782275218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782275215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33d1d27503bd8498d33f241530e554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  additive: 2.5
 --- !u!1 &785192399
 GameObject:
   m_ObjectHideFlags: 0
@@ -22238,11 +22280,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1021852658}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9893fef0eca6d4149a2a8fa15bee753f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f1ee74f391effe4f9cac5046481de25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bouncy: {fileID: 6200000, guid: a0c0403412eb376408140be1820daebc, type: 2}
-  sameBouncy: {fileID: 6200000, guid: ce424af22a661b640986134541a2cf41, type: 2}
 --- !u!1 &1023455391
 GameObject:
   m_ObjectHideFlags: 0
@@ -25577,6 +25617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1264431879}
   - component: {fileID: 1264431880}
+  - component: {fileID: 1264431881}
   m_Layer: 0
   m_Name: Bouncy
   m_TagString: Bounce
@@ -25624,6 +25665,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.32, y: 0.41}
   m_EdgeRadius: 0
+--- !u!114 &1264431881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264431878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33d1d27503bd8498d33f241530e554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  additive: 2.5
 --- !u!1 &1265497191
 GameObject:
   m_ObjectHideFlags: 0
@@ -42392,6 +42446,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1969833810}
   - component: {fileID: 1969833811}
+  - component: {fileID: 1969833812}
   m_Layer: 0
   m_Name: Bouncy
   m_TagString: Bounce
@@ -42439,6 +42494,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.32, y: 0.41}
   m_EdgeRadius: 0
+--- !u!114 &1969833812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969833809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33d1d27503bd8498d33f241530e554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  additive: 2.5
 --- !u!1 &1985725986
 GameObject:
   m_ObjectHideFlags: 0
