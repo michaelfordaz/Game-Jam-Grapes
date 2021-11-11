@@ -9,6 +9,8 @@ TagManager:
   - Destructable Vile
   - Rat
   - End Space
+  - Jar
+  - JarTriggerWall
   layers:
   - Default
   - TransparentFX

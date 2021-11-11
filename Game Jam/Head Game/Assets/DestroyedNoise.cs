@@ -8,7 +8,7 @@ public class DestroyedNoise : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Destructable Vile") && collision.gameObject.GetComponent<Destructable>().surfaceObject != gameObject)
+        if ((collision.gameObject.CompareTag("Destructable Vile") || collision.gameObject.CompareTag("Jar")) && collision.gameObject.GetComponent<Destructable>().surfaceObject != gameObject)
         {
             if (!clinkSound.isPlaying)
             {

@@ -16,16 +16,22 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource squishSound;
     public AudioSource splatSound;
+    // If it's the first splat, don't play the noise
+    private bool firstSplat = true;
 
     public Transform respawnPoint;
 
+    public Image black;
     public Image fadeOne;
     public Image fadeTwo;
 
     void Start()
     {
+        black.canvasRenderer.SetAlpha(1.0f);
         fadeOne.canvasRenderer.SetAlpha(0.0f);
         fadeTwo.canvasRenderer.SetAlpha(0.0f);
+
+        black.CrossFadeAlpha(0, 3, false);
 
         //Fetch the Rigidbody from the GameObject with this script attached
         m_Rigidbody = GetComponent<Rigidbody2D>();
@@ -50,9 +56,14 @@ public class PlayerController : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!splatSound.isPlaying)
+        if (!splatSound.isPlaying && firstSplat == false)
         {
             splatSound.Play();
+        }
+        // Make sure that the head doesn't splat the first time (when game loads). It's annoying.
+        if (firstSplat == true && !collision.gameObject.CompareTag("Jar"))
+        {
+            firstSplat = false;
         }
     }
     
@@ -93,6 +104,12 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("End Space"))
         {
             StartCoroutine(fader());
+        }
+
+        // If the head hits one of the sides of the jar, trigger splat noise
+        if (collision.gameObject.CompareTag("JarTriggerWall") && !splatSound.isPlaying && firstSplat == false)
+        {
+            splatSound.Play();
         }
     }
 
