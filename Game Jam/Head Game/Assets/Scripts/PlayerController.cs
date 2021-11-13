@@ -29,6 +29,9 @@ public class PlayerController : MonoBehaviour
     public Image fadeOne;
     public Image fadeTwo;
 
+    // This brings up a menu at the end of the game
+    public GameObject endMenuUI;
+
     void Start()
     {
         // Check to make sure the fades have been set
@@ -139,6 +142,10 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(20);
 
-        SceneManager.LoadScene("LevelDesign");
+        // Bring up the end menu
+        endMenuUI.SetActive(true);
+        // Stop time
+        Time.timeScale = 0f;
+        //SceneManager.LoadScene("LevelDesign");
     }
 }
