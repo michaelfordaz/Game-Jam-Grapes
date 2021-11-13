@@ -10,6 +10,9 @@ public class BounceActivate : MonoBehaviour
     // A rat sqweak when you hit it
     public AudioSource ratSound;
 
+    // For Blink Animation
+    //public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,10 @@ public class BounceActivate : MonoBehaviour
     {
         if (GetComponent<Rigidbody2D>().velocity.y == 0 && !collision.gameObject.CompareTag("Bounce") && leftSurface == true)
         {
+            // Have head blink
+            //GetComponent<Animator>().Play("Blink");
+            //animator.SetBool("HitGround", true);
+            GetComponent<Animator>().SetTrigger("DoBlink");
             //print("enter");
             leftSurface = false;
         }
