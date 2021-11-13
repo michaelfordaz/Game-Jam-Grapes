@@ -24040,6 +24040,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintingNormal: {fileID: 21300000, guid: f9892e0b81f9bec4089dda2a91f6b54b, type: 3}
+  paintingCreepyQuarter: {fileID: 21300000, guid: 17f6cfb978cbb2d48ac10a26fb65470a, type: 3}
+  paintingCreepyTrans: {fileID: 21300000, guid: 3edb628bf9f972c4eaeb0bf814835771, type: 3}
   paintingCreepy: {fileID: 21300000, guid: a7d2546ab354fd44ca2781d87cbfcc0f, type: 3}
 --- !u!1 &1018003122
 GameObject:
