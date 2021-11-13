@@ -137,6 +137,8 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator fader()
     {
+        // Trigger end song
+        GameObject.Find("Game Manager").GetComponent<AudioManager>().ending();
         fadeOne.CrossFadeAlpha(1, 5, false);
         fadeTwo.CrossFadeAlpha(1, 5, false);
 
