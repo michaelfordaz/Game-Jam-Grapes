@@ -139,6 +139,9 @@ public class PlayerController : MonoBehaviour
     {
         // Trigger end song
         GameObject.Find("Game Manager").GetComponent<AudioManager>().ending();
+        // Help make the transition look better by having slightly earlier black transition
+        black.CrossFadeAlpha(1, 3, false);
+        // Transition into end picture
         fadeOne.CrossFadeAlpha(1, 5, false);
         fadeTwo.CrossFadeAlpha(1, 5, false);
 

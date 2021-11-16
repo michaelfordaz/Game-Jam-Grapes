@@ -41,7 +41,7 @@ public class BounceActivate : MonoBehaviour
             // Have head blink
             //GetComponent<Animator>().Play("Blink");
             //animator.SetBool("HitGround", true);
-            GetComponent<Animator>().SetTrigger("DoBlink");
+            //GetComponent<Animator>().SetTrigger("DoBlink");
             //print("enter");
             leftSurface = false;
         }
