@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource squishSound;
     public AudioSource splatSound;
     // A rat sqweak when you hit it
-    public AudioSource ratSound;
+    //public AudioSource ratSound;
     // If it's the first splat, don't play the noise
     private bool firstSplat = true;
 
@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Rat"))
+        /*if (collision.gameObject.CompareTag("Rat"))
         {
             // Play rat noise
             if (!ratSound.isPlaying)
@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
             gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0f;
-        }
+        }*/
         if (collision.gameObject.CompareTag("End Space"))
         {
             StartCoroutine(fader());

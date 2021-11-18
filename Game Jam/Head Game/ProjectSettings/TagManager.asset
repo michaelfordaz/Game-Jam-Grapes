@@ -13,6 +13,7 @@ TagManager:
   - JarTriggerWall
   - Bounce
   - JumpVile
+  - Jump Pad
   layers:
   - Default
   - TransparentFX

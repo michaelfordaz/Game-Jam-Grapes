@@ -6,9 +6,11 @@ public class BounceActivate : MonoBehaviour
 {
     private GameObject[] bouncePads;
     private bool leftSurface = false;
+    private bool touchingGroundObject = false;
 
     // A rat sqweak when you hit it
     public AudioSource ratSound;
+    public Transform respawnPoint;
 
     // For Blink Animation
     //public Animator animator;
@@ -32,9 +34,29 @@ public class BounceActivate : MonoBehaviour
             print("enter");
             leftSurface = false;
         }*/
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            touchingGroundObject = true;
+        }
+        if (collision.gameObject.CompareTag("Bounce") && touchingGroundObject == true)
+        {
+            // Play rat noise
+            if (!ratSound.isPlaying)
+            {
+                ratSound.Play();
+            }
+            gameObject.GetComponent<PlayerController>().trailObject.GetComponent<TrailRenderer>().emitting = false;
+            gameObject.GetComponent<PlayerController>().touchingGround = false;
+            gameObject.GetComponent<PlayerController>().squishSound.mute = true;
+
+            gameObject.transform.position = respawnPoint.position;
+            gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0f;
+        }
     }
 
-    void OnCollisionStay2D(Collision2D collision)
+        void OnCollisionStay2D(Collision2D collision)
     {
         if (GetComponent<Rigidbody2D>().velocity.y == 0 && !collision.gameObject.CompareTag("Bounce") && leftSurface == true)
         {
@@ -53,6 +75,10 @@ public class BounceActivate : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            touchingGroundObject = false;
+        }
         if (!collision.gameObject.CompareTag("Bounce") && leftSurface == false)
         {
             //print("exit");
@@ -80,7 +106,8 @@ public class BounceActivate : MonoBehaviour
             //print("repeat");
             foreach (GameObject bouncer in bouncePads)
             {
-                bouncer.GetComponent<BoxCollider2D>().sharedMaterial.bounciness = 1.0f;
+                //bouncer.GetComponent<BoxCollider2D>().sharedMaterial.bounciness = 1.0f;
+                bouncer.GetComponent<EdgeCollider2D>().sharedMaterial.bounciness = 1.0f;
             }
         }
     }

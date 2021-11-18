@@ -12,9 +12,9 @@ public class BounceRecieve : MonoBehaviour
     {
         // Create a new PhysicsMaterial2D to work with and overwrite
         bouncy = new PhysicsMaterial2D();
-        gameObject.GetComponent<BoxCollider2D>().sharedMaterial = bouncy;
+        //gameObject.GetComponent<BoxCollider2D>().sharedMaterial = bouncy;
         // Testing Purposes, Change:
-        //gameObject.GetComponent<EdgeCollider2D>().sharedMaterial = bouncy;
+        gameObject.GetComponent<EdgeCollider2D>().sharedMaterial = bouncy;
         //print(bouncy.bounciness);
     }
 
