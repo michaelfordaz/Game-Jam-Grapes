@@ -54,7 +54,7 @@ public class BounceActivate : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0f;
         }
-        else if(collision.gameObject.CompareTag("Bounce"))
+        else if(collision.gameObject.CompareTag("Bounce") && !collision.gameObject.CompareTag("Ground"))
         {
             StartCoroutine(doSquish(collision));
         }
