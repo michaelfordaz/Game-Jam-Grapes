@@ -10,17 +10,18 @@ public class PaintingSwap : MonoBehaviour
     public Sprite paintingCreepy;
 
     // Change the face to be creepy if player is to the right of it
+    // And above -3 y
     void Update()
     {
-        if (GameObject.FindWithTag("Player").transform.position.x > (transform.position.x + 1.0f))
+        if (GameObject.FindWithTag("Player").transform.position.x > (transform.position.x + 1.0f) && GameObject.FindWithTag("Player").transform.position.y > -3.0f)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = paintingCreepy;
         }
-        else if ((transform.position.x + 0.5f) < GameObject.FindWithTag("Player").transform.position.x && GameObject.FindWithTag("Player").transform.position.x < (transform.position.x + 1.0f))
+        else if ((transform.position.x + 0.5f) < GameObject.FindWithTag("Player").transform.position.x && GameObject.FindWithTag("Player").transform.position.x < (transform.position.x + 1.0f) && GameObject.FindWithTag("Player").transform.position.y > -3.0f)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = paintingCreepyTrans;
         }
-        else if (transform.position.x < GameObject.FindWithTag("Player").transform.position.x && GameObject.FindWithTag("Player").transform.position.x < (transform.position.x + 0.5f))
+        else if (transform.position.x < GameObject.FindWithTag("Player").transform.position.x && GameObject.FindWithTag("Player").transform.position.x < (transform.position.x + 0.5f) && GameObject.FindWithTag("Player").transform.position.y > -3.0f)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = paintingCreepyQuarter;
         }
