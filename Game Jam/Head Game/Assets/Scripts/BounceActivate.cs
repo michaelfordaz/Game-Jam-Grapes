@@ -54,6 +54,10 @@ public class BounceActivate : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0f;
         }
+        else if(collision.gameObject.CompareTag("Bounce"))
+        {
+            StartCoroutine(doSquish(collision));
+        }
     }
 
         void OnCollisionStay2D(Collision2D collision)
@@ -109,6 +113,16 @@ public class BounceActivate : MonoBehaviour
                 //bouncer.GetComponent<BoxCollider2D>().sharedMaterial.bounciness = 1.0f;
                 bouncer.GetComponent<EdgeCollider2D>().sharedMaterial.bounciness = 1.0f;
             }
+            // Squish the rat
+            //collision.gameObject.GetComponent<Animator>().SetTrigger("DoSquish");
+            //StartCoroutine(doSquish(collision));
         }
+    }
+
+    IEnumerator doSquish(Collision2D collision)
+    {
+        collision.gameObject.GetComponent<Animator>().SetTrigger("DoSquish");
+        yield return new WaitForSeconds(0.2f);
+        collision.gameObject.GetComponent<Animator>().SetTrigger("DoSquish");
     }
 }
