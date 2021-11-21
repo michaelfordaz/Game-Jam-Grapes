@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class BounceActivate : MonoBehaviour
 {
+    // This will store all rats
     private GameObject[] bouncePads;
+    // This will store all rat locations
+    private Transform[] ratTransforms;
     private bool leftSurface = false;
     private bool touchingGroundObject = false;
 
@@ -19,6 +22,13 @@ public class BounceActivate : MonoBehaviour
     void Start()
     {
         bouncePads = GameObject.FindGameObjectsWithTag("Bounce");
+        // Get the transforms of all rats and store in a list
+        // This will be used to find the nearest rat
+        ratTransforms = new Transform[bouncePads.Length];
+        for (int i = 0; i < ratTransforms.Length; i++)
+        {
+            ratTransforms[i] = bouncePads[i].transform;
+        }
     }
 
     // Update is called once per frame
@@ -56,7 +66,10 @@ public class BounceActivate : MonoBehaviour
         }
         else if(collision.gameObject.CompareTag("Bounce") && !collision.gameObject.CompareTag("Ground"))
         {
-            StartCoroutine(doSquish(collision));
+            // Squish the closest rat
+            StartCoroutine(doSquish(GetClosestEnemy(ratTransforms).gameObject));
+            //StartCoroutine(doSquish(collision));
+            //GetClosestEnemy(ratTransforms);
         }
     }
 
@@ -119,10 +132,36 @@ public class BounceActivate : MonoBehaviour
         }
     }
 
-    IEnumerator doSquish(Collision2D collision)
+    /*IEnumerator doSquish(Collision2D collision)
     {
         collision.gameObject.GetComponent<Animator>().SetTrigger("DoSquish");
         yield return new WaitForSeconds(0.2f);
         collision.gameObject.GetComponent<Animator>().SetTrigger("DoSquish");
+    }*/
+
+    // Squish using gameObject instead of collision
+    IEnumerator doSquish(GameObject nearestRat)
+    {
+        nearestRat.GetComponent<Animator>().SetTrigger("DoSquish");
+        yield return new WaitForSeconds(0.2f);
+        nearestRat.GetComponent<Animator>().SetTrigger("DoSquish");
+    }
+
+    // Find nearest rat
+    Transform GetClosestEnemy(Transform[] enemies)
+    {
+        Transform tMin = null;
+        float minDist = Mathf.Infinity;
+        Vector3 currentPos = transform.position;
+        foreach (Transform t in enemies)
+        {
+            float dist = Vector3.Distance(t.position, currentPos);
+            if (dist < minDist)
+            {
+                tMin = t;
+                minDist = dist;
+            }
+        }
+        return tMin;
     }
 }
