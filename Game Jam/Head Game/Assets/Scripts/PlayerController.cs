@@ -145,12 +145,18 @@ public class PlayerController : MonoBehaviour
         fadeOne.CrossFadeAlpha(1, 5, false);
         fadeTwo.CrossFadeAlpha(1, 5, false);
 
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(3);
+
+        // Stop time
+        Time.timeScale = 0f;
+
+        // Not affector by Time.timeScale
+        yield return new WaitForSecondsRealtime(17);
 
         // Bring up the end menu
         endMenuUI.SetActive(true);
         // Stop time
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         //SceneManager.LoadScene("LevelDesign");
     }
 }
