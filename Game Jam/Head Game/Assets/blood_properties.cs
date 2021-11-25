@@ -10,7 +10,7 @@ public class blood_properties : MonoBehaviour
     // This will hold the value of our alpha
     float newAlpha = 1.0f;
     // This will hold the value of how red the blood is
-    float newRed = 1.0f;
+    //float newRed = 1.0f;
 
     void Start()
     {
@@ -59,7 +59,7 @@ public class blood_properties : MonoBehaviour
     public void createScale(float multiplier)
     {
         // Calculate blood size
-        float bloodScale = Random.Range(5.5f + multiplier / 10f, 7.0f + multiplier / 10f);
+        float bloodScale = Random.Range(5.5f + multiplier / 8f, 8.0f + multiplier / 8f);
         // Set blood size
         transform.localScale = new Vector3(bloodScale, bloodScale, bloodScale);
     }
